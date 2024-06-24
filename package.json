@@ -1,0 +1,19 @@
+{
+  "name": "chatapp-api",
+  "version": "1.0.0",
+  "description": "chatapp-api/server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jebdev99/chatapp-api.git"
+  },
+  "author": "John Eric Blancia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jebdev99/chatapp-api/issues"
+  },
+  "homepage": "https://github.com/jebdev99/chatapp-api#readme"
+}
