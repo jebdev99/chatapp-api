@@ -25,9 +25,9 @@ const show = async (req, res) => {
 const create = async (req, res) => {
     try {
         await userService.createUser(req.body);
-        res.status(200).json({ message: "Successfully Saved" });
+        res.json({ message: "Successfully Saved" });
     } catch (err) {
-        res.status(500).json({ error: 'user index error: ' + err.message });
+        res.status(500).json({ error: 'user create error: ' + err.message });
     } finally {
         console.log('finally');
     }
@@ -38,7 +38,7 @@ const update = async (req, res) => {
         const data = await userService.updateUser(req.body._id,  req.body)
         res.status(200).json({user: data})
     } catch (error) {
-        res.status(500).json('user index error: ', error)
+        res.status(500).json('user update error: ', error)
     } finally {
         console.log('finally');
     }

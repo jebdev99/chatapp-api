@@ -14,10 +14,11 @@ const cors = require('cors')
 const port = process.env.PORT || 3001;
 mongoose.connect(dbUri, optionalConfig)
 .then(() => console.log("connected to db"))
+const authRoutes = require('./src/routes/AuthRoutes.js');
 const userRoutes = require('./src/routes/UserRoutes.js');
 // middlewares
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 
 // server listen to port 3000 as default

@@ -6,9 +6,8 @@ const create = async (userData) => {
 } 
 const getUsers = async () => await User.find();
 const getUserById = async (id) => await User.findById(id).find().sort({ createdAt: -1 });
-const updateUser = async (id, userData) => await User.findByIdAndUpdate(id, userData, {new: true});
+const updateUser = async (id, userData) => await User.findByIdAndUpdate({_id: id}, userData, {new: true});
 const deleteUser = async (id) => await User.findByIdAndDelete(id);
-
 
 module.exports = {
     create,
