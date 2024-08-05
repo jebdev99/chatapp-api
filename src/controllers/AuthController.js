@@ -2,8 +2,7 @@ const authService = require('../services/AuthService');
 
 const login = async (req, res) => {
     try {
-        const {statusCode, message, token} = await authService.loginUser(req.query);
-        console.log({statusCode, message, token});
+        const {statusCode, message, token} = await authService.loginUser(req.body);
         res.status(statusCode).json({message, token});
     } catch (error) {
         console.log(error);
@@ -13,8 +12,8 @@ const login = async (req, res) => {
 
 const register = async (req, res) => {
     try {
-        await authService.registerUser(req.body)
-        res.json({message: "Registered"})
+        const { message } = await authService.registerUser(req.body)
+        res.json({ message })
     } catch (error) {
         console.log(error);
         res.json({message: "Something went wrong."})
